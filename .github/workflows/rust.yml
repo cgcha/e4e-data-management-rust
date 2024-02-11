@@ -31,13 +31,13 @@ jobs:
       shell: bash
       run: |
         if [ "${{ matrix.os }}" = "windows-latest" ]; then
-          mv target/debug/e4e-data-management-rust.exe target/debug/e4e-data-management-rust-${{ matrix.os }}.exe
+          mv ./target/debug/e4e-data-management-rust.exe ./target/debug/e4e-data-management-rust-${{ matrix.os }}.exe
         else
-          mv target/debug/e4e-data-management-rust target/debug/e4e-data-management-rust-${{ matrix.os }}
+          mv ./target/debug/e4e-data-management-rust ./target/debug/e4e-data-management-rust-${{ matrix.os }}
         fi
         
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact-${{ matrix.os }}
-        path: target/release/my_project-${{ matrix.os }}*
+        path: ./target/release/my_project-${{ matrix.os }}*
