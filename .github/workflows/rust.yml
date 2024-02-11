@@ -55,7 +55,7 @@ jobs:
        run: ls -r dist
        
      - name: Try listing inner directory? 
-       run: ls -r dist-my-artifact-macos-latest
+       run: ls -r dist/my-artifact-macos-latest
 
 
          #- name: Create release
