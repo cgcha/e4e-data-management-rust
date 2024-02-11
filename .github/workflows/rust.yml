@@ -54,13 +54,13 @@ jobs:
      - name: List directory contents
        run: ls -r dist
 
-    - name: Create release
-      uses: softprops/action-gh-release@v1
-      with:
-        name: Test release ${{ github.sha }}
-        files: |
-          my-artifact-macos-latest
-          my-artifact-windows-latest
-          my-artifact-ubuntu-latest
+     - name: Create release
+       uses: softprops/action-gh-release@v1
+       with:
+         name: Test release ${{ github.sha }}
+         files: |
+           my-artifact-macos-latest
+           my-artifact-windows-latest
+           my-artifact-ubuntu-latest
 
     
