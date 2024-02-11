@@ -41,3 +41,17 @@ jobs:
       with:
         name: my-artifact-${{ matrix.os }}
         path: ./target/debug/e4e-data-management-rust-${{ matrix.os }}*
+
+  release: 
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+     - name: Download artifacts
+       uses: actions/download-artifact@v3
+       with: 
+        path: dist
+
+     - name: List directory contents
+       run: ls -r dist
+
+    
