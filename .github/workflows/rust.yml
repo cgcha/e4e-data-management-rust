@@ -40,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact-${{ matrix.os }}
-        path: ./target/debug/my_project-${{ matrix.os }}*
+        path: ./target/debug/e4e-data-management-rust-${{ matrix.os }}*
