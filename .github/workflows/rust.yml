@@ -54,7 +54,14 @@ jobs:
      - name: List directory contents
        run: ls -r dist
        
-
+     - name: Get build details
+       run: |
+          set -e
+          
+          commit_count=$(git rev-list --count HEAD)
+          echo "COMMIT_COUNT=$commit_count" >> $GITHUB_ENV
+          current_sha=$(git rev-parse --short HEAD)
+          echo "CURRENT_SHA=$current_sha" >> $GITHUB_ENV
 
      - name: Create release
        uses: softprops/action-gh-release@v1
@@ -62,5 +69,10 @@ jobs:
          name: Test release ${{ github.sha }}
          tag_name: v0.1.2
          files: ./dist/*/e4e-data-management-rust-*
+         body: |
+           Test release details:
+           - Commit Count: ${{ env.COMMIT_COUNT }}
+           - Current SHA: ${{ env.CURRENT_SHA }}
+         append_body: True
 
     
