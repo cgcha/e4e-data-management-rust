@@ -50,9 +50,15 @@ jobs:
        uses: actions/download-artifact@v3
        with: 
         path: dist
-
+                  
      - name: List directory contents
        run: ls -r dist
+
+     - name: Checkout Repository
+       uses: actions/checkout@v4
+       with:
+        repository: 'cgcha/e4e-data-management-rust'
+        fetch-depth: 1
        
      - name: Get build details
        run: |
